@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="bohyeon04가 만든 게임과 웹 작업을 소개하는 공간입니다.">
+  <title>bohyeon04 · 작업실</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #0a1420;
+      --surface: #101f2d;
+      --border: #2a4252;
+      --text: #f0f9fa;
+      --muted: #abc2cc;
+      --accent: #67f0cd;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(ellipse at 70% 0, #163747, transparent 40rem), var(--background);
+      color: var(--text);
+      font: 1rem/1.65 system-ui, sans-serif;
+      word-break: keep-all;
+    }
+
+    .shell { width: min(68rem, calc(100% - 2.5rem)); margin-inline: auto; }
+    header, footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-block: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    a { color: inherit; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .brand { font-weight: 750; }
+    .brand span { color: var(--accent); }
+    .navigation { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .35rem 1rem; }
+    .github { color: var(--muted); text-underline-offset: .22em; }
+    .github:hover { color: var(--accent); }
+
+    .hero {
+      padding-block: clamp(3rem, 8vw, 6rem) clamp(2rem, 5vw, 3.5rem);
+    }
+    .eyebrow, .tag {
+      color: var(--accent);
+      font: 700 .78rem/1.4 ui-monospace, monospace;
+      letter-spacing: .14em;
+    }
+
+    h1 {
+      margin: .55rem 0 .8rem;
+      font-size: clamp(2rem, 6vw, 4rem);
+      line-height: 1.15;
+      letter-spacing: -.045em;
+    }
+
+    p { margin: 0; }
+    .intro, .description { color: var(--muted); }
+    .collection + .collection { margin-top: 2.75rem; }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: .35rem 1rem;
+      margin-bottom: 1rem;
+    }
+    .section-title { margin: 0; font-size: 1.35rem; }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .project {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      background: var(--surface);
+    }
+
+    .art {
+      display: grid;
+      place-items: center;
+      min-height: 9rem;
+      border-bottom: 1px solid var(--border);
+      background-color: #0c1826;
+      background-image: linear-gradient(#1a3142 1px, transparent 1px),
+                        linear-gradient(90deg, #1a3142 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    .art svg { width: min(60%, 9rem); height: auto; }
+    .details {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.25rem;
+    }
+    .details h3 { margin: .25rem 0 .45rem; font-size: 1.25rem; line-height: 1.35; }
+    .description { flex: 1; }
+    .music { --accent: #e8b3ff; }
+    .music-heading p { margin-top: .2rem; color: var(--muted); }
+    .music .projects { grid-template-columns: 1fr; }
+    .track {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+    }
+    .track .details { padding: 0; }
+    .song-player {
+      display: block;
+      width: 100%;
+      height: 152px;
+      border: 0;
+      border-radius: .65rem;
+    }
+    .action {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      min-height: 44px;
+      margin-top: 1.2rem;
+      padding: .55rem .95rem;
+      border-radius: .5rem;
+      background: var(--accent);
+      color: #082018;
+      text-decoration: none;
+      font-weight: 750;
+    }
+
+    .action:hover { background: #a2ffe7; }
+    footer {
+      margin-top: 3rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 0;
+      color: var(--muted);
+      font-size: .875rem;
+    }
+
+    @media (max-width: 48rem) {
+      .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .track { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 32rem) {
+      .projects { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="shell">
+  <header>
+    <div class="brand"><span aria-hidden="true">▰</span> bohyeon04</div>
+    <nav class="navigation" aria-label="페이지 메뉴">
+      <a class="github" href="#games">게임</a>
+      <a class="github" href="#music">음악</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <p class="eyebrow">BOHYEON04 / WORKSHOP</p>
+      <h1>만든 것들을 모아두는 작업실</h1>
+      <p class="intro">직접 만든 미니게임과 음악을 소개합니다.</p>
+    </div>
+
+    <section class="collection" id="games" aria-labelledby="games-title">
+      <div class="section-header">
+        <h2 class="section-title" id="games-title">게임</h2>
+        <a class="github" href="https://bohyeon04.github.io/game/">게임 모음 열기</a>
+      </div>
+      <div class="projects">
+        <!-- 새 작품은 article 블록을 복사한 뒤 제목, 소개, 링크를 바꾸세요.
+             같은 폴더에 있는 파일은 ./파일이름.html 형식으로 연결하세요.
+             썸네일이 없으면 art 블록을 생략해도 됩니다. -->
+        <article class="project">
+          <div class="art" aria-hidden="true">
+            <svg viewBox="0 0 192 120" fill="none">
+              <path d="M39 33h34m10 0h34m10 0h26M51 51h34m10 0h34" stroke="#67f0cd" stroke-width="9" stroke-linecap="round"/>
+              <circle cx="113" cy="73" r="7" fill="#ff7798"/>
+              <rect x="68" y="91" width="56" height="9" rx="4" fill="#a6ffea"/>
+            </svg>
+          </div>
+          <div class="details">
+            <p class="tag">CLASSIC</p>
+            <h3>네온 벽돌깨기</h3>
+            <p class="description">패들로 공을 튕겨 벽돌을 부수고 5개 레벨을 클리어하세요.</p>
+            <a class="action" href="https://bohyeon04.github.io/game/01.html" aria-label="네온 벽돌깨기 플레이하기">
+              플레이하기 <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
+        <article class="project">
+          <div class="art" aria-hidden="true">
+            <svg viewBox="0 0 192 120" fill="none">
+              <path d="M24 84h48V36h48v24h24" stroke="#36cea9" stroke-width="20"/>
+              <rect x="134" y="50" width="20" height="20" rx="2" fill="#a6ffea"/>
+              <circle cx="174" cy="60" r="7" fill="#ff7798"/>
+            </svg>
+          </div>
+          <div class="details">
+            <p class="tag">ARCADE</p>
+            <h3>네온 스네이크</h3>
+            <p class="description">먹이를 먹을수록 길어지는 뱀을 조종해 최고 점수에 도전하세요.</p>
+            <a class="action" href="https://bohyeon04.github.io/game/03.html" aria-label="네온 스네이크 플레이하기">
+              플레이하기 <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
+        <article class="project">
+          <div class="art" aria-hidden="true">
+            <svg viewBox="0 0 192 120" fill="none">
+              <path d="M96 44l22 45-22-10-22 10 22-45Z" fill="#67f0cd"/>
+              <path d="M96 90v12" stroke="#a6ffea" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="49" cy="38" r="12" fill="#ff7798"/>
+              <circle cx="141" cy="25" r="8" fill="#ffad78"/>
+            </svg>
+          </div>
+          <div class="details">
+            <p class="tag">SURVIVAL</p>
+            <h3>우주선 피하기</h3>
+            <p class="description">우주선을 좌우로 움직여 떨어지는 운석을 피하고 오래 살아남으세요.</p>
+            <a class="action" href="https://bohyeon04.github.io/game/02.html" aria-label="우주선 피하기 플레이하기">
+              플레이하기 <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="collection music" id="music" aria-labelledby="music-title">
+      <div class="section-header">
+        <div class="music-heading">
+          <h2 class="section-title" id="music-title">내가 만든 노래</h2>
+          <p>각 곡의 ▶ 버튼을 눌러 이 페이지에서 바로 들어보세요.</p>
+        </div>
+        <a class="github" href="https://bohyeon04.github.io/music/">음악 모음 열기</a>
+      </div>
+      <div class="projects">
+        <article class="project track">
+          <div class="details">
+            <p class="tag">R&amp;B · BALLAD</p>
+            <h3>아직 너를 사는 중</h3>
+            <p class="description">이별 뒤에 남은 그리움을 담은 새벽 감성 R&amp;B.</p>
+          </div>
+          <iframe class="song-player" title="아직 너를 사는 중 재생"
+            src="https://suno.com/embed/8e3c2c4d-1ba4-4400-8ea5-1c8c7946867d"
+            loading="lazy" allow="autoplay"></iframe>
+        </article>
+        <article class="project track">
+          <div class="details">
+            <p class="tag">FESTIVAL EDM · K-POP</p>
+            <h3>어디든 좋아</h3>
+            <p class="description">창문을 열고 달리고 싶은 청량한 드라이브 음악.</p>
+          </div>
+          <iframe class="song-player" title="어디든 좋아 재생"
+            src="https://suno.com/embed/95b2187b-1f9d-4450-84d4-2955d5fe9fb3"
+            loading="lazy" allow="autoplay"></iframe>
+        </article>
+        <article class="project track">
+          <div class="details">
+            <p class="tag">HARDSTYLE · EDM</p>
+            <h3>한계를 깨 (BREAK THE LIMIT)</h3>
+            <p class="description">마지막 한 세트까지 힘을 끌어올리는 강렬한 운동 음악.</p>
+          </div>
+          <iframe class="song-player" title="한계를 깨 재생"
+            src="https://suno.com/embed/50222d71-8caa-4cd7-9d91-d89f07b60b56"
+            loading="lazy" allow="autoplay"></iframe>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>bohyeon04 · 작업실</footer>
+</body>
+</html>
