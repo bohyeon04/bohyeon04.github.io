@@ -196,6 +196,10 @@
     .panel-note {font-size:.75rem;color:#72767b;margin:18px 18px 0;}
     @media(max-width:42rem) { .nav-inner {gap:.6rem;justify-content:space-between;min-height:68px;} .site-brand {font-size:.95rem;} .site-nav {gap:0;} .site-nav .home-link,.nav-trigger {padding:10px;} .nav-group {padding-block:12px;} .mega-panel {padding:18px 12px;} .menu-grid {grid-template-columns:1fr;gap:0;} .menu-card {padding:12px;} .menu-icon {display:none;} .panel-heading {padding-inline:12px;} .panel-heading h2 {font-size:.95rem;} }
     @media(prefers-reduced-motion:reduce) { .menu-card {transition:none;} }
+  
+    body.shell {width:100%;margin:0;}
+    main, footer {width:min(68rem,calc(100% - 2.5rem));margin-inline:auto;}
+    .site-header {width:100%;margin-left:0;}
   </style>
 </head>
 <body class="shell">
