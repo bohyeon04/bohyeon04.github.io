@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="BOHYEON LAB 게시판. 게임과 음악에 대한 질문, 후기와 아이디어를 나누세요.">
+  <title>게시판 · BOHYEON LAB</title>
+  <style>
+    :root{color-scheme:dark;--bg:#111126;--card:#211e39;--line:#494164;--text:#f5f3ff;--muted:#c3bddb;--accent:#c5b8ff}
+    *{box-sizing:border-box}[hidden]{display:none!important}
+    body{margin:0;background:radial-gradient(ellipse at 90% 0,#45418c66,transparent 45rem),var(--bg);color:var(--text);font:1rem/1.8 system-ui,"Malgun Gothic",sans-serif;word-break:keep-all}
+    a{color:inherit;text-underline-offset:4px}button,input,select,textarea{font:inherit}button,a,input,textarea,select{touch-action:manipulation}button{cursor:pointer}button:disabled{opacity:.6;cursor:wait}:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+    .shell{width:min(68rem,calc(100% - 2.5rem));margin:auto}header{border-bottom:1px solid var(--line);background:#19182e}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:76px}.brand{font-weight:850;text-decoration:none;letter-spacing:-.04em}.nav nav{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:.85rem}.nav nav a{text-decoration:none;color:var(--muted)}.nav nav a[aria-current]{color:#fff}
+    .hero{padding:3.5rem 0 2rem}.eyebrow{font:.75rem ui-monospace,monospace;letter-spacing:.18em;color:var(--accent)}h1{font-size:clamp(2rem,5vw,3.5rem);margin:.8rem 0;letter-spacing:-.045em;line-height:1.2}p{color:var(--muted);margin:.5rem 0}.hero p{max-width:45rem}
+    .toolbar{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin-bottom:1.5rem}.filters{display:flex;gap:.5rem;flex-wrap:wrap}.filters button,.secondary{border:1px solid var(--line);background:#29233f;color:var(--text);border-radius:25px;padding:.5rem .9rem;min-height:44px}.filters button[aria-pressed=true]{background:var(--accent);color:#241c3b;border-color:var(--accent)}
+    .search{flex:1;min-width:180px}input,textarea,select{color:var(--text);background:#17162b;border:1px solid #62577b;border-radius:10px;padding:.7rem .9rem;width:100%}.primary{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.55rem 1rem;border-radius:25px;background:var(--accent);color:#241c3b;border:0;text-decoration:none;font-weight:750}
+    .meta{font-size:.8rem;color:#b4aacd}.board-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}.post-row a{display:grid;grid-template-columns:65px minmax(0,1fr);gap:1rem;padding:1.3rem .5rem;border-bottom:1px solid var(--line);text-decoration:none}.post-row a:hover{background:#242039}.badge{display:inline-block;border:1px solid #62517f;border-radius:20px;padding:.15rem .65rem;color:#d6c4f8;font-size:.75rem;align-self:start;justify-self:start}.post-row strong{font-size:1.05rem;overflow-wrap:anywhere}.preview{margin:.3rem 0;color:#b6accd;font-size:.9rem;overflow-wrap:anywhere}
+    .empty{border:1px solid var(--line);border-radius:18px;padding:2.5rem 1.5rem;text-align:center;background:var(--card)}.empty strong{display:block;margin-bottom:.5rem}.board-status{min-height:1.8rem;font-size:.85rem;margin-bottom:.6rem}.below-list{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin:1.5rem 0}
+    .panel{border:1px solid var(--line);border-radius:20px;padding:clamp(1.2rem,4vw,2rem);background:var(--card);margin:1.5rem 0}.panel h2{font-size:clamp(1.35rem,3vw,2rem);line-height:1.4;margin:.5rem 0;overflow-wrap:anywhere}.post-body{white-space:pre-wrap;overflow-wrap:anywhere;margin:1.5rem 0;color:#e0d8ee}.panel label{display:block;margin:1rem 0 .35rem}.panel textarea{min-height:220px;resize:vertical}.form-actions{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-top:1.4rem}.small{font-size:.85rem}.help{border-top:1px solid var(--line);padding-top:1.5rem;margin-top:3rem}.help h2{font-size:1rem}.help p{font-size:.85rem}footer{padding:2rem 0;color:var(--muted);font-size:.85rem}
+    @media(max-width:48rem){.nav{flex-direction:column;align-items:flex-start;padding:1rem 0;gap:.5rem}.nav nav{gap:.8rem}.hero{padding-top:2.5rem}.search{order:2;flex-basis:100%}.post-row a{grid-template-columns:1fr;gap:.5rem}}
+  </style>
+</head>
+<body>
+  <header><div class="shell nav"><a class="brand" href="/">BOHYEON LAB.</a><nav aria-label="메인 메뉴"><a href="/">홈</a><a href="/game/">게임</a><a href="/music/">노래</a><a href="/voice-studio.html">보이스 스튜디오</a><a href="/ai-video.html">AI 영상</a><a href="/board.html" aria-current="page">게시판</a></nav></div></header>
+  <main class="shell">
+    <div class="hero"><p class="eyebrow">COMMUNITY / BOARD</p><h1>게시판</h1><p>게임을 즐긴 후기, 노래에 대한 감상, 새로운 아이디어까지.<br>BOHYEON LAB에서 함께 이야기해요.</p><p class="small">읽기는 누구나, 글과 댓글 작성은 GitHub 계정으로 참여할 수 있어요.</p></div>
+    <div id="list-view">
+      <div class="toolbar"><div class="filters" aria-label="글 분류"><button type="button" data-filter="전체" aria-pressed="true">전체</button><button type="button" data-filter="자유" aria-pressed="false">자유</button><button type="button" data-filter="질문" aria-pressed="false">질문</button><button type="button" data-filter="후기" aria-pressed="false">후기</button></div><label class="search"><span class="small">게시글 검색</span><input id="search" type="search" placeholder="제목, 내용, 작성자 검색" aria-label="게시글 검색"></label><a class="primary" href="#new">＋ 글쓰기</a></div>
+      <p class="board-status" id="status" role="status">게시글을 불러오는 중…</p><ul class="board-list" id="posts"></ul><div class="empty" id="empty" hidden><strong>아직 등록된 글이 없어요.</strong><p>첫 번째 이야기를 남겨주세요.</p></div><div class="below-list"><button class="secondary" id="refresh" type="button">새로고침</button><button class="secondary" id="more" type="button" hidden>이전 글 더 불러오기</button><a class="secondary" href="https://github.com/bohyeon04/bohyeon04.github.io/issues" target="_blank" rel="noopener noreferrer">GitHub 게시글 보기 ↗</a></div>
+    </div>
+    <section class="panel" id="detail-view" hidden aria-labelledby="post-title"><a href="#">← 목록으로</a><p><span class="badge" id="post-category"></span></p><h2 id="post-title"></h2><p class="meta" id="post-meta"></p><div class="post-body" id="post-body"></div><a class="primary" id="comment-link" target="_blank" rel="noopener noreferrer">GitHub에서 댓글 달기 ↗</a><h3>댓글</h3><div id="comments"></div></section>
+    <section class="panel" id="new-view" hidden aria-labelledby="new-title"><a href="#">← 목록으로</a><h2 id="new-title">새 이야기 작성하기</h2><p class="small">작성한 내용을 GitHub로 전달한 뒤, 로그인하고 ‘Submit new issue’를 눌러 등록해 주세요. 등록 후 이 페이지에서 새로고침하면 보여요.</p><form id="compose"><label for="category">분류</label><select id="category"><option>자유</option><option>질문</option><option>후기</option></select><label for="title">제목</label><input id="title" required maxlength="100" placeholder="어떤 이야기를 나누고 싶으신가요?"><label for="body">내용</label><textarea id="body" required maxlength="5000" placeholder="내용을 입력해 주세요."></textarea><p class="small">등록한 글은 공개 게시판과 GitHub 저장소에서 누구나 볼 수 있어요.</p><div class="form-actions"><button class="primary" type="submit">GitHub에서 등록 계속하기 ↗</button><a href="#">취소</a></div><p id="form-status" role="status"></p></form></section>
+    <div class="help"><h2>게시판 이용 안내</h2><p>게시글과 댓글은 GitHub Issues에 저장됩니다. 글쓰기 화면에서 자유·질문·후기 분류를 선택해 주세요. 제목의 [분류] 표시를 유지하면 해당 분류로 나타납니다. 수정과 삭제는 GitHub에서 본인 계정으로 진행할 수 있어요.</p><p>검색은 현재 불러온 게시글을 기준으로 합니다. API 요청 한도나 연결 오류가 생기면 잠시 후 새로고침하거나 GitHub 게시글 보기를 이용해 주세요.</p></div>
+  </main><footer class="shell">BOHYEON LAB. · COMMUNITY</footer>
+  <script>
+    const repo = 'bohyeon04/bohyeon04.github.io';
+    const api = 'https://api.github.com/repos/' + repo + '/issues';
+    const github = 'https://github.com/' + repo + '/issues';
+    const byId = id => document.getElementById(id);
+    let posts = [];
+    let filter = '전체';
+    let page = 1;
+    let busy = false;
+    let routeVersion = 0;
+    function element(tag, text, className) {
+      const node = document.createElement(tag);
+      node.textContent = text;
+      if (className) node.className = className;
+      return node;
+    }
+    function category(post) {
+      return post.title.match(/^\[(자유|질문|후기)\]/)?.[1] || '자유';
+    }
+    function title(post) {
+      return post.title.replace(/^\[(자유|질문|후기)\]\s*/, '');
+    }
+    function metadata(post) {
+      const date = new Date(post.created_at).toLocaleDateString('ko-KR');
+      return post.user.login + ' · ' + date;
+    }
+    async function get(url) {
+      const response = await fetch(url, {headers: {Accept: 'application/vnd.github+json'}});
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      return response.json();
+    }
+    function render() {
+      const query = byId('search').value.trim().toLocaleLowerCase();
+      const shown = posts.filter(post => (filter === '전체' || category(post) === filter) &&
+        [post.title, post.body || '', post.user.login].join(' ').toLocaleLowerCase().includes(query));
+      byId('posts').replaceChildren();
+      shown.forEach(post => {
+        const item = element('li', '', 'post-row');
+        const link = element('a', '');
+        link.href = '#post=' + post.number;
+        link.append(element('span', category(post), 'badge'));
+        const summary = element('div', '');
+        summary.append(element('strong', title(post)));
+        summary.append(element('p', (post.body || '').replace(/\s+/g, ' ').slice(0, 110), 'preview'));
+        summary.append(element('span', metadata(post) + ' · 댓글 ' + post.comments, 'meta'));
+        link.append(summary);
+        item.append(link);
+        byId('posts').append(item);
+      });
+      byId('empty').hidden = shown.length > 0;
+      byId('empty').querySelector('strong').textContent = posts.length ? '검색과 분류에 맞는 글이 없어요.' : '아직 등록된 글이 없어요.';
+      byId('status').textContent = '불러온 글 ' + posts.length + '개 · 표시 ' + shown.length + '개';
+    }
+    async function load(reset) {
+      if (busy) return;
+      busy = true;
+      byId('refresh').disabled = true;
+      byId('more').disabled = true;
+      byId('status').textContent = '게시글을 불러오는 중…';
+      const nextPage = reset ? 1 : page;
+      try {
+        const batch = await get(api + '?state=all&sort=created&direction=desc&per_page=100&page=' + nextPage);
+        const issues = batch.filter(post => !post.pull_request);
+        const combined = reset ? issues : posts.concat(issues);
+        posts = Array.from(new Map(combined.map(post => [post.number, post])).values());
+        page = nextPage + 1;
+        byId('more').hidden = batch.length < 100;
+        render();
+      } catch {
+        byId('status').textContent = '게시글을 불러오지 못했어요. 새로고침하거나 GitHub 게시글 보기를 눌러주세요.';
+      } finally {
+        busy = false;
+        byId('refresh').disabled = false;
+        byId('more').disabled = false;
+      }
+    }
+    async function route() {
+      const version = ++routeVersion;
+      const hash = location.hash;
+      const number = hash.match(/^#post=(\d+)$/)?.[1];
+      byId('list-view').hidden = hash === '#new' || !!number;
+      byId('new-view').hidden = hash !== '#new';
+      byId('detail-view').hidden = !number;
+      if (!number) return;
+      byId('post-title').textContent = '게시글을 불러오는 중…';
+      byId('post-category').textContent = '';
+      byId('post-meta').textContent = '';
+      byId('post-body').textContent = '';
+      byId('comments').replaceChildren();
+      byId('comment-link').hidden = true;
+      try {
+        const post = await get(api + '/' + number);
+        if (version !== routeVersion) return;
+        if (post.pull_request) throw new Error('Not a board post');
+        byId('post-title').textContent = title(post);
+        byId('post-category').textContent = category(post);
+        byId('post-meta').textContent = metadata(post);
+        byId('post-body').textContent = post.body || '';
+        byId('comment-link').href = github + '/' + number + '#new_comment_field';
+        byId('comment-link').hidden = false;
+        if (!post.comments) {
+          byId('comments').append(element('p', '아직 댓글이 없어요.'));
+          return;
+        }
+        try {
+          const comments = await get(api + '/' + number + '/comments?per_page=100');
+          if (version !== routeVersion) return;
+          comments.forEach(comment => {
+            const article = element('article', '', 'panel');
+            article.append(element('p', metadata(comment), 'meta'), element('div', comment.body || '', 'post-body'));
+            byId('comments').append(article);
+          });
+          if (post.comments > comments.length) byId('comments').append(element('p', '추가 댓글은 GitHub에서 볼 수 있어요.'));
+        } catch {
+          if (version === routeVersion) byId('comments').append(element('p', '댓글을 불러오지 못했어요. GitHub에서 확인해 주세요.'));
+        }
+      } catch {
+        if (version === routeVersion) byId('post-title').textContent = '이 글을 불러올 수 없어요. 목록으로 돌아가 다시 시도해 주세요.';
+      }
+    }
+    document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => {
+      filter = button.dataset.filter;
+      document.querySelectorAll('[data-filter]').forEach(other => other.setAttribute('aria-pressed', String(other === button)));
+      render();
+    }));
+    byId('search').addEventListener('input', render);
+    byId('refresh').addEventListener('click', () => load(true));
+    byId('more').addEventListener('click', () => load(false));
+    byId('compose').addEventListener('submit', event => {
+      event.preventDefault();
+      const subject = byId('title').value.trim();
+      const body = byId('body').value.trim();
+      if (!subject || !body) {
+        byId('form-status').textContent = '제목과 내용을 입력해 주세요.';
+        return;
+      }
+      const params = new URLSearchParams({title: '[' + byId('category').value + '] ' + subject, body});
+      const url = github + '/new?' + params;
+      if (url.length > 7500) {
+        byId('form-status').textContent = 'GitHub로 전달할 수 있도록 내용을 조금 줄여주세요. 긴 내용은 GitHub 작성 화면에서 이어 쓸 수 있어요.';
+        return;
+      }
+      location.assign(url);
+    });
+    window.addEventListener('hashchange', route);
+    route();
+    load(true);
+  </script>
+</body>
+</html>
