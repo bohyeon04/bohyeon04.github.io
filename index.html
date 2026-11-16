@@ -168,15 +168,67 @@
     .featured .track .tag { margin-bottom:.75rem; }
     .featured .track h3 { font-size:1.6rem;margin-bottom:1rem; }
     @media(max-width:42rem) { .featured {grid-template-columns:1fr;} .featured .project {min-height:0;} }
+  
+    .site-header { position:relative;z-index:10;width:100vw;margin-left:calc((100% - 100vw)/2);padding:0;border-bottom:1px solid #e5e7eb;background:#fff;color:#181a20;display:block;color-scheme:light; }
+    .nav-inner { width:min(68rem,calc(100% - 2.5rem));margin:auto;display:flex;align-items:center;gap:3rem;min-height:76px;position:relative; }
+    .site-brand {font-size:1.1rem;font-weight:850;letter-spacing:-.05em;text-decoration:none;white-space:nowrap;}
+    .site-brand span {color:#167c69;}
+    .site-nav {display:flex;align-items:center;gap:.35rem;}
+    .site-nav .home-link,.nav-trigger {font:600 .9rem/1.4 system-ui,sans-serif;color:#23252c;text-decoration:none;border:0;background:transparent;padding:12px 18px;border-radius:30px;cursor:pointer;min-height:44px;}
+    .nav-trigger span {margin-left:5px;color:#74777e;}
+    .site-nav .home-link:hover,.nav-trigger:hover,.nav-trigger[aria-expanded="true"] {background:#f0f1f2;}
+    .site-header a:focus-visible,.site-header button:focus-visible {outline:2px solid #167c69;outline-offset:3px;}
+    .nav-group {padding-block:16px;}
+    .mega-panel {position:absolute;top:100%;left:0;width:100%;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:26px;box-shadow:0 20px 45px #0003;color:#181a20;max-height:calc(100dvh - 100px);overflow:auto;}
+    .mega-panel[hidden] {display:none;}
+    .panel-heading {display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:18px;}
+    .panel-label {font:700 .7rem/1.4 ui-monospace,monospace;letter-spacing:.18em;color:#777b80;}
+    .panel-heading h2 {margin:.35rem 0 0;font-size:1.1rem;}
+    .panel-heading a {font-size:.85rem;color:#4f565c;text-underline-offset:4px;}
+    .menu-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+    .menu-card {display:flex;flex-direction:column;align-items:flex-start;gap:7px;padding:18px;text-decoration:none;border-radius:12px;transition:background .15s;}
+    .menu-card:hover,.menu-card:focus-visible {background:#f2f6f4;}
+    .menu-card strong {font-size:1rem;}
+    .menu-card > span:not(.menu-icon) {font-size:.85rem;color:#686e74;line-height:1.6;}
+    .menu-card small {font:600 .68rem/1.5 ui-monospace,monospace;color:#61746e;margin-top:8px;letter-spacing:.04em;}
+    .menu-icon {width:42px;height:42px;display:grid;place-items:center;background:#e4f3ec;color:#18735e;border-radius:12px;font-size:1.6rem;margin-bottom:8px;}
+    .song-icon {background:#f2eafa;color:#8351a5;}
+    .panel-note {font-size:.75rem;color:#72767b;margin:18px 18px 0;}
+    @media(max-width:42rem) { .nav-inner {gap:.6rem;justify-content:space-between;min-height:68px;} .site-brand {font-size:.95rem;} .site-nav {gap:0;} .site-nav .home-link,.nav-trigger {padding:10px;} .nav-group {padding-block:12px;} .mega-panel {padding:18px 12px;} .menu-grid {grid-template-columns:1fr;gap:0;} .menu-card {padding:12px;} .menu-icon {display:none;} .panel-heading {padding-inline:12px;} .panel-heading h2 {font-size:.95rem;} }
+    @media(prefers-reduced-motion:reduce) { .menu-card {transition:none;} }
   </style>
 </head>
 <body class="shell">
-  <header>
-    <div class="brand"><span aria-hidden="true">▰</span> bohyeon04</div>
-    <nav class="navigation" aria-label="페이지 메뉴">
-      <a class="github" href="/game/">게임</a>
-      <a class="github" href="/music/">음악</a>
-    </nav>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="site-brand" href="/">BOHYEON LAB<span aria-hidden="true">.</span></a>
+      <nav class="site-nav" aria-label="메인 메뉴">
+        <a class="home-link" href="/" aria-current="page">홈</a>
+        <div class="nav-group">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="games-panel">게임 <span aria-hidden="true">⌄</span></button>
+          <div class="mega-panel" id="games-panel" hidden>
+            <div class="panel-heading"><div><p class="panel-label">PLAY</p><h2>직접 만든 미니게임</h2></div><a href="/game/">게임 전체 보기 ↗</a></div>
+            <div class="menu-grid">
+              <a class="menu-card" href="/game/01.html"><span class="menu-icon" aria-hidden="true">▤</span><strong>네온 벽돌깨기</strong><span>공을 튕겨 5개 레벨에 도전하세요.</span><small>CLASSIC ↗</small></a>
+              <a class="menu-card" href="/game/03.html"><span class="menu-icon" aria-hidden="true">⌁</span><strong>네온 스네이크</strong><span>먹이를 먹고 최고 점수를 기록하세요.</span><small>ARCADE ↗</small></a>
+              <a class="menu-card" href="/game/02.html"><span class="menu-icon" aria-hidden="true">✦</span><strong>우주선 피하기</strong><span>운석을 피해 오래 살아남으세요.</span><small>SURVIVAL ↗</small></a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="songs-panel">노래 <span aria-hidden="true">⌄</span></button>
+          <div class="mega-panel" id="songs-panel" hidden>
+            <div class="panel-heading"><div><p class="panel-label">LISTEN</p><h2>순간마다 어울리는 세 곡</h2></div><a href="/music/">노래 전체 보기 ↗</a></div>
+            <div class="menu-grid">
+              <a class="menu-card" href="https://suno.com/s/pOwj4379wHnR3TUI"><span class="menu-icon song-icon" aria-hidden="true">☾</span><strong>아직 너를 사는 중</strong><span>이별 뒤의 그리움을 담은 감성 R&amp;B.</span><small>R&amp;B · BALLAD ↗</small></a>
+              <a class="menu-card" href="https://suno.com/s/PkLII0SGszGw3kkU"><span class="menu-icon song-icon" aria-hidden="true">≈</span><strong>어디든 좋아</strong><span>여행길에 어울리는 청량한 음악.</span><small>FESTIVAL EDM ↗</small></a>
+              <a class="menu-card" href="https://suno.com/s/KcJ0pb2ixMshTpkl"><span class="menu-icon song-icon" aria-hidden="true">ϟ</span><strong>한계를 깨</strong><span>BREAK THE LIMIT · 에너지를 채우는 운동 음악.</span><small>HARDSTYLE · EDM ↗</small></a>
+            </div>
+            <p class="panel-note">곡을 선택하면 Suno에서 열립니다. 홈페이지 안에서 들으려면 노래 전체 보기를 눌러주세요.</p>
+          </div>
+        </div>
+      </nav>
+    </div>
   </header>
 
   <main>
@@ -223,5 +275,46 @@
   </main>
 
   <footer>bohyeon04 · 작업실</footer>
+<script>
+    const header = document.querySelector('.site-header');
+    const groups = Array.from(header.querySelectorAll('.nav-group'));
+    function setMenu(active) {
+      groups.forEach(group => {
+        const open = group === active;
+        group.querySelector('button').setAttribute('aria-expanded', String(open));
+        group.querySelector('.mega-panel').hidden = !open;
+      });
+    }
+    groups.forEach(group => {
+      const button = group.querySelector('button');
+      button.addEventListener('click', () => setMenu(button.getAttribute('aria-expanded') === 'true' ? null : group));
+      group.addEventListener('pointerenter', event => {
+        if (event.pointerType === 'mouse') setMenu(group);
+      });
+      button.addEventListener('keydown', event => {
+        if (event.key === 'ArrowDown') {
+          event.preventDefault();
+          setMenu(group);
+          group.querySelector('.mega-panel a').focus();
+        }
+      });
+    });
+    header.addEventListener('pointerleave', event => {
+      if (event.pointerType === 'mouse' && !header.contains(document.activeElement)) setMenu(null);
+    });
+    header.addEventListener('focusout', event => {
+      if (!header.contains(event.relatedTarget)) setMenu(null);
+    });
+    header.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        const current = groups.find(group => group.querySelector('button').getAttribute('aria-expanded') === 'true');
+        setMenu(null);
+        if (current) current.querySelector('button').focus();
+      }
+    });
+    document.addEventListener('pointerdown', event => {
+      if (!header.contains(event.target)) setMenu(null);
+    });
+  </script>
 </body>
 </html>
