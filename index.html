@@ -256,6 +256,36 @@
   
     .featured .snake-vector {height:clamp(200px,23vw,310px);min-height:0;background:radial-gradient(circle,#3d416e,#211f3e);}
     .featured .snake-vector svg {width:78%;max-width:none;max-height:80%;height:auto;}
+  
+    html {scroll-behavior:smooth;}
+    .section-jumps {display:flex;flex-wrap:wrap;gap:.6rem;padding:1.2rem 0 2rem;border-bottom:1px solid var(--border);}
+    .section-jumps a {padding:.55rem 1rem;background:#25213e;border:1px solid #4b4268;border-radius:30px;font-size:.8rem;color:#d3c8ec;text-decoration:none;}
+    .section-jumps a:hover {background:#3c3157;}
+    .showcase {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);align-items:center;gap:3rem;padding:4rem 0;border-bottom:1px solid #3e385c;scroll-margin-top:1.5rem;}
+    .showcase-copy h2 {font-size:clamp(1.9rem,3.7vw,3rem);line-height:1.25;letter-spacing:-.045em;margin:.9rem 0 1rem;}
+    .showcase-copy > p:not(.eyebrow) {color:#bfb8d8;line-height:1.85;font-size:.95rem;}
+    .work-links {display:flex;gap:.5rem;flex-wrap:wrap;margin:1.2rem 0 .4rem;}
+    .work-links a,.work-links > span {border:1px solid #4d4469;border-radius:25px;padding:.3rem .7rem;font-size:.75rem;color:#d2c7e8;text-decoration:none;}
+    .work-links a:hover {background:#392f50;}
+    .showcase-visual {overflow:hidden;border-radius:22px;border:1px solid #51466e;background:#211e39;min-width:0;text-decoration:none;}
+    .game-preview {display:flex;flex-direction:column;align-items:center;background:radial-gradient(circle at 50% 30%,#454774,#211f3e);padding:2rem 1.5rem 1.3rem;}
+    .game-preview svg {width:100%;height:auto;max-height:230px;}
+    .preview-caption {display:flex;justify-content:space-between;gap:1rem;width:100%;padding-top:1.8rem;font:700 .75rem ui-monospace,monospace;letter-spacing:.1em;color:#d4c9f4;}
+    .preview-caption span {color:#b9acd9;font-size:.65rem;}
+    .music-preview {padding:1.1rem;background:linear-gradient(145deg,#392b59,#20203c);}
+    .record-art {display:grid;justify-items:center;padding:1rem 0 1.4rem;}
+    .record-disc {width:140px;height:140px;border-radius:50%;display:grid;place-items:center;background:repeating-radial-gradient(circle,#282440 0 4px,#39304e 5px 6px);border:1px solid #79688e;box-shadow:0 10px 30px #08071466;}
+    .record-disc span {display:grid;place-items:center;border-radius:50%;width:50px;height:50px;background:#b9a2df;color:#20182f;font-size:1.4rem;}
+    .record-art p {font:.65rem ui-monospace,monospace;letter-spacing:.13em;color:#c4b2df;margin-top:1.3rem;}
+    .music-preview .song-player {height:160px;}
+    .voice-preview {padding:1.1rem;background:linear-gradient(130deg,#403255,#24223f);}
+    .voice-preview img {display:block;width:100%;height:auto;border-radius:9px;}
+    .video-preview {display:grid;place-items:center;padding:1rem;background:radial-gradient(ellipse,#4d386c,#211e39);}
+    .video-preview iframe {display:block;width:min(100%,250px);aspect-ratio:9/16;border:0;border-radius:13px;background:#101020;}
+    .video-external {display:inline-block;margin:1rem 0 0 1rem;font-size:.85rem;color:#c9bbe5;text-underline-offset:4px;}
+    @media(min-width:49rem){.showcase:nth-child(even) .showcase-copy {grid-column:2;grid-row:1;}.showcase:nth-child(even) .showcase-visual {grid-column:1;grid-row:1;}}
+    @media(max-width:48rem){.showcase {grid-template-columns:1fr;gap:1.5rem;padding:2.5rem 0;}.video-external {margin-left:0;display:block;}.showcase-copy h2 br {display:none;}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
   </style>
 </head>
 <body class="shell">
@@ -317,34 +347,23 @@
         </svg>
       </div>
     </div>
-    <div class="collection-heading"><div><p>SELECTED WORKS</p><h2>지금 만나볼 작품</h2></div><span>게임과 음악, 두 가지 취향</span></div>
-    <div class="featured">
-      <section aria-labelledby="featured-game">
-        <div class="section-header"><h2 class="section-title" id="featured-game">대표 게임</h2><a class="github" href="/game/">게임 더보기 ↗</a></div>
-        <article class="project">
-          <div class="art snake-vector"><svg viewBox="0 0 300 170" role="img" aria-label="초록 뱀과 빨간 먹이 그림"><g fill="#35d6ae"><rect x="40" y="115" width="30" height="30" rx="7"/><rect x="75" y="115" width="30" height="30" rx="7"/><rect x="110" y="115" width="30" height="30" rx="7"/><rect x="110" y="80" width="30" height="30" rx="7"/><rect x="110" y="45" width="30" height="30" rx="7"/><rect x="145" y="45" width="30" height="30" rx="7"/></g><rect x="180" y="45" width="30" height="30" rx="7" fill="#b5fff0"/><circle cx="201" cy="52" r="3" fill="#0c3133"/><circle cx="201" cy="66" r="3" fill="#0c3133"/><circle cx="252" cy="60" r="13" fill="#ff718f"/></svg></div>
-          <div class="details">
-            <p class="tag">ARCADE</p>
-            <h3>네온 스네이크</h3>
-            <p class="description">먹이를 먹을수록 길어지는 뱀을 조종해 최고 점수에 도전하세요.</p>
-            <a class="action" href="https://bohyeon04.github.io/game/03.html" aria-label="네온 스네이크 플레이하기">
-              플레이하기 <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </article>
+    <nav class="section-jumps" aria-label="작품 영역 바로가기"><a href="#home-games">01 게임</a><a href="#home-music">02 노래</a><a href="#home-voice">03 보이스 스튜디오</a><a href="#home-video">04 AI 영상</a></nav>
+    <div class="showcases">
+      <section class="showcase" id="home-games" aria-labelledby="home-games-title">
+        <div class="showcase-copy"><p class="eyebrow">01 / PLAY</p><h2 id="home-games-title">가볍게 시작하는<br>세 가지 게임.</h2><p>벽돌을 부수고, 뱀을 키우고, 운석을 피하고.<br>설치 없이 브라우저에서 바로 즐겨보세요.</p><div class="work-links"><a href="/game/01.html">네온 벽돌깨기 ↗</a><a href="/game/03.html">네온 스네이크 ↗</a><a href="/game/02.html">우주선 피하기 ↗</a></div><a class="action" href="/game/">게임 모음 보기 ↗</a></div>
+        <a class="showcase-visual game-preview" href="/game/03.html" aria-label="네온 스네이크 플레이하기"><svg viewBox="0 0 300 170" role="img" aria-label="초록 뱀과 빨간 먹이 그림"><g fill="#35d6ae"><rect x="40" y="115" width="30" height="30" rx="7"/><rect x="75" y="115" width="30" height="30" rx="7"/><rect x="110" y="115" width="30" height="30" rx="7"/><rect x="110" y="80" width="30" height="30" rx="7"/><rect x="110" y="45" width="30" height="30" rx="7"/><rect x="145" y="45" width="30" height="30" rx="7"/></g><rect x="180" y="45" width="30" height="30" rx="7" fill="#b5fff0"/><circle cx="201" cy="52" r="3" fill="#0c3133"/><circle cx="201" cy="66" r="3" fill="#0c3133"/><circle cx="252" cy="60" r="13" fill="#ff718f"/></svg><span class="preview-caption">NEON SNAKE <span>PLAY NOW ↗</span></span></a>
       </section>
-      <section class="music" aria-labelledby="featured-song">
-        <div class="section-header"><h2 class="section-title" id="featured-song">대표 노래</h2><a class="github" href="/music/">노래 더보기 ↗</a></div>
-        <article class="project track">
-          <div class="details">
-            <p class="tag">R&amp;B · BALLAD</p>
-            <h3>아직 너를 사는 중</h3>
-            <p class="description">이별 뒤에 남은 그리움을 담은 새벽 감성 R&amp;B.</p>
-          </div>
-          <iframe class="song-player" title="아직 너를 사는 중 재생"
-            src="https://suno.com/embed/8e3c2c4d-1ba4-4400-8ea5-1c8c7946867d"
-            loading="lazy" allow="autoplay"></iframe>
-        </article>
+      <section class="showcase" id="home-music" aria-labelledby="home-music-title">
+        <div class="showcase-copy"><p class="eyebrow">02 / LISTEN</p><h2 id="home-music-title">오늘의 기분에<br>어울리는 음악.</h2><p>새벽의 감성부터 여행길의 설렘까지.<br>Suno로 만든 세 곡을 만나보세요.</p><div class="work-links"><span>아직 너를 사는 중</span><span>어디든 좋아</span><span>한계를 깨</span></div><a class="action" href="/music/">노래 모음 듣기 ↗</a></div>
+        <div class="showcase-visual music-preview"><div class="record-art" aria-hidden="true"><div class="record-disc"><span>♫</span></div><p>BOHYEON / SOUND COLLECTION</p></div><iframe class="song-player" title="대표 노래 아직 너를 사는 중 재생" src="https://suno.com/embed/8e3c2c4d-1ba4-4400-8ea5-1c8c7946867d" loading="lazy" allow="autoplay"></iframe></div>
+      </section>
+      <section class="showcase" id="home-voice" aria-labelledby="home-voice-title">
+        <div class="showcase-copy"><p class="eyebrow">03 / VOICE STUDIO</p><h2 id="home-voice-title">한 문장을<br>내 목소리로.</h2><p>Python과 ElevenLabs로 만든 보이스 스튜디오.<br>목소리를 선택하고 문장을 읽은 뒤 WAV로 저장해요.</p><div class="work-links"><span>내 음성 선택</span><span>문장 재생</span><span>WAV 저장</span></div><a class="action" href="/voice-studio.html">프로그램과 사용법 보기 ↗</a></div>
+        <a class="showcase-visual voice-preview" href="/voice-studio.html" aria-label="보이스 스튜디오 소개 보기"><img src="/voice-studio.png" width="757" height="674" loading="lazy" alt="보현의 보이스 스튜디오 Python 프로그램 화면"></a>
+      </section>
+      <section class="showcase" id="home-video" aria-labelledby="home-video-title">
+        <div class="showcase-copy"><p class="eyebrow">04 / AI VIDEO</p><h2 id="home-video-title">사진 한 장에<br>목소리를 더하다.</h2><p>ElevenLabs의 AI 목소리와 HeyGen으로 완성한 영상.<br>내 사진이 내 목소리로 말하는 모습을 확인해 보세요.</p><div class="work-links"><span>ElevenLabs</span><span>HeyGen</span><span>AI 영상 제작</span></div><a class="action" href="/ai-video.html">영상과 제작 과정 보기 ↗</a><a class="video-external" href="https://www.youtube.com/shorts/_L1fK-s0Pjk" target="_blank" rel="noopener noreferrer">YouTube에서 보기 ↗</a></div>
+        <div class="showcase-visual video-preview"><iframe title="보현의 AI 영상 재생" src="https://www.youtube.com/embed/_L1fK-s0Pjk?playsinline=1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
       </section>
     </div>
   </main>
