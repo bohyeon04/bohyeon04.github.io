@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="bohyeon04가 만든 게임과 웹 작업을 소개하는 공간입니다.">
-  <title>bohyeon04 · 작업실</title>
+  <title>BOHYEON LAB · Play &amp; Sound</title>
   <style>
     :root {
       color-scheme: dark;
@@ -200,6 +200,54 @@
     body.shell {width:100%;margin:0;}
     main, footer {width:min(68rem,calc(100% - 2.5rem));margin-inline:auto;}
     .site-header {width:100%;margin-left:0;}
+  
+    :root {--background:#101025;--surface:#1b1c3c;--border:#3b3c65;--text:#f5f3ff;--muted:#bfc0df;--accent:#b7acff;}
+    body {background:radial-gradient(ellipse at 80% 8%,#44439b66,transparent 40rem),radial-gradient(ellipse at 0 40%,#35316850,transparent 36rem),#101025;}
+    .site-header {background:#17172dec;color:#f5f3ff;border-bottom:1px solid #444267;backdrop-filter:blur(18px);}
+    .site-brand {letter-spacing:-.04em;}
+    .site-brand span {color:#aaa1ff;}
+    .site-nav .home-link,.nav-trigger {color:#e8e5ff;}
+    .site-nav .home-link:hover,.nav-trigger:hover,.nav-trigger[aria-expanded="true"] {background:#39355d;}
+    .nav-trigger span {color:#b8b3d7;}
+    .site-header a:focus-visible,.site-header button:focus-visible {outline-color:#b4a7ff;}
+    .mega-panel {background:#22213c;color:#f4f0ff;border-color:#4a456d;box-shadow:0 24px 65px #07071499;}
+    .panel-label,.panel-heading a {color:#bfb5ef;}
+    .menu-card:hover,.menu-card:focus-visible {background:#373153;}
+    .menu-card > span:not(.menu-icon),.panel-note {color:#c0bad9;}
+    .menu-card small {color:#c6bcff;}
+    .menu-icon,.song-icon {background:#403665;color:#d0c1ff;}
+    .hero {position:relative;isolation:isolate;padding-block:5rem 4rem;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:2rem;align-items:center;}
+    .hero-copy {position:relative;z-index:1;}
+    .hero .eyebrow {color:#c1b9ff;font-size:.72rem;letter-spacing:.2em;}
+    .hero h1 {font-size:clamp(2.5rem,5.6vw,4.7rem);letter-spacing:-.055em;margin:1rem 0;line-height:1.05;}
+    .hero-subtitle {font-size:clamp(1.15rem,2.4vw,1.7rem);color:#ded9fb;margin-bottom:.85rem;line-height:1.5;}
+    .hero .intro {max-width:30rem;font-size:.95rem;line-height:1.9;}
+    .hero-actions {display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.8rem;}
+    .hero-actions a {min-height:46px;display:inline-flex;align-items:center;padding:.65rem 1.15rem;border-radius:40px;text-decoration:none;font-weight:700;font-size:.9rem;}
+    .primary-link {background:#c3b6ff;color:#201738;box-shadow:0 8px 28px #8a66e62b;}
+    .secondary-link {border:1px solid #66618c;background:#292642;color:#f0eaff;}
+    .hero-art {min-height:300px;display:grid;place-items:center;position:relative;}
+    .hero-art svg {width:100%;max-width:440px;filter:drop-shadow(0 20px 60px #8373ef35);}
+    .collection-heading {display:flex;align-items:end;justify-content:space-between;gap:1rem;border-top:1px solid #3b385c;padding-top:1.7rem;margin-bottom:1.7rem;}
+    .collection-heading p {color:#b1a7d8;font:.7rem ui-monospace,monospace;letter-spacing:.2em;margin-bottom:.5rem;}
+    .collection-heading h2 {font-size:1.5rem;margin:0;letter-spacing:-.03em;}
+    .collection-heading > span {font-size:.8rem;color:#b9b3d1;}
+    .featured {gap:1.5rem;}
+    .featured .section-title {font-size:1rem;color:#d0c7ed;}
+    .featured .project {border-color:#494065;background:linear-gradient(145deg,#292442,#191b36);border-radius:22px;box-shadow:0 12px 35px #08081730;}
+    .featured .art {background-color:#1d1e42;background-image:linear-gradient(#7877b21c 1px,transparent 1px),linear-gradient(90deg,#7877b21c 1px,transparent 1px);border-color:#4d456c;}
+    .featured .track {background:radial-gradient(ellipse at 100% 0,#61509550,transparent 70%),#211d39;--accent:#d4b8fa;}
+    .featured .tag {color:#c0b0ff;}
+    .featured .track .song-player {border-color:#4a3c66;}
+    .github {color:#c0b8df;}
+    .github:hover {color:#eee7ff;}
+    .action {background:#b9adff;color:#241c3c;border-radius:30px;}
+    .action:hover,.primary-link:hover {background:#d4caff;}
+    footer {border-color:#3e385c;color:#aaa3c7;padding-block:1.5rem 2rem;}
+    .footer-inner {display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+    .footer-inner strong {color:#d8d1f0;font-size:.9rem;}
+    .footer-inner a {color:#c8bfe8;text-underline-offset:4px;}
+    @media(max-width:48rem) {.hero {grid-template-columns:1fr;padding-block:3rem 2.5rem;gap:.5rem;} .hero-art {min-height:180px;max-width:320px;justify-self:center;} .hero-art svg {max-height:220px;} .collection-heading > span {display:none;} }
   </style>
 </head>
 <body class="shell">
@@ -236,11 +284,30 @@
   </header>
 
   <main>
-    <div class="hero">
-      <p class="eyebrow">PLAY · LISTEN · CREATE</p>
-      <h1>BOHYEON LAB</h1>
-      <p class="intro">직접 만든 게임과 음악을 만나는 공간.</p>
+    <div class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">A LITTLE WORLD OF PLAY &amp; SOUND</p>
+        <h1>BOHYEON LAB</h1>
+        <p class="hero-subtitle">플레이하고, 듣고, 발견하는 공간.</p>
+        <p class="intro">직접 만든 작은 게임부터 순간을 담은 음악까지.<br>마음에 드는 작품을 골라 가볍게 즐겨보세요.</p>
+        <div class="hero-actions"><a class="primary-link" href="/game/">게임 둘러보기 ↗</a><a class="secondary-link" href="/music/">노래 들어보기 ♫</a></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 440 330" fill="none">
+          <defs><radialGradient id="orb"><stop stop-color="#c9baff"/><stop offset=".55" stop-color="#7c72df"/><stop offset="1" stop-color="#3d3a83"/></radialGradient><linearGradient id="tile" x1="70" y1="80" x2="320" y2="260" gradientUnits="userSpaceOnUse"><stop stop-color="#8171ba" stop-opacity=".65"/><stop offset="1" stop-color="#35345e" stop-opacity=".7"/></linearGradient></defs>
+          <circle cx="250" cy="151" r="108" fill="url(#orb)"/>
+          <ellipse cx="246" cy="168" rx="175" ry="62" transform="rotate(-23 246 168)" stroke="#c3b6ff" stroke-opacity=".5"/>
+          <rect x="48" y="141" width="164" height="124" rx="24" transform="rotate(-9 48 141)" fill="url(#tile)" stroke="#c7b4ff" stroke-opacity=".65"/>
+          <path d="M90 197h30m-15-15v30" stroke="#eee7ff" stroke-width="7" stroke-linecap="round"/>
+          <circle cx="165" cy="188" r="6" fill="#e5c4ff"/><circle cx="180" cy="203" r="6" fill="#b0b8ff"/>
+          <rect x="292" y="62" width="96" height="111" rx="21" transform="rotate(12 292 62)" fill="#46416d" stroke="#c8bbff"/>
+          <path d="M321 103v37m12-44v37m12-43v37" stroke="#d9c3ff" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="95" cy="84" r="5" fill="#d6baff"/><path d="M359 250h16m-8-8v16" stroke="#c5bbff" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="267" cy="291" r="3" fill="#c8beff"/>
+        </svg>
+      </div>
     </div>
+    <div class="collection-heading"><div><p>SELECTED WORKS</p><h2>지금 만나볼 작품</h2></div><span>게임과 음악, 두 가지 취향</span></div>
     <div class="featured">
       <section aria-labelledby="featured-game">
         <div class="section-header"><h2 class="section-title" id="featured-game">대표 게임</h2><a class="github" href="/game/">게임 더보기 ↗</a></div>
@@ -278,7 +345,7 @@
     </div>
   </main>
 
-  <footer>bohyeon04 · 작업실</footer>
+  <footer><div class="footer-inner"><div><strong>BOHYEON LAB.</strong><p>작은 아이디어가 게임과 음악이 되는 곳.</p></div><a href="#top">맨 위로 ↑</a></div></footer>
 <script>
     const header = document.querySelector('.site-header');
     const groups = Array.from(header.querySelectorAll('.nav-group'));
