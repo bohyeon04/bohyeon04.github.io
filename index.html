@@ -251,6 +251,11 @@
   
     .featured .snake-photo {min-height:0;background:#211f3e;display:block;}
     .snake-photo img {display:block;width:100%;height:auto;}
+  
+    .site-nav a.nav-trigger {display:inline-flex;align-items:center;text-decoration:none;}
+  
+    .featured .snake-vector {height:clamp(200px,23vw,310px);min-height:0;background:radial-gradient(circle,#3d416e,#211f3e);}
+    .featured .snake-vector svg {width:78%;max-width:none;max-height:80%;height:auto;}
   </style>
 </head>
 <body class="shell">
@@ -260,9 +265,9 @@
       <nav class="site-nav" aria-label="메인 메뉴">
         <a class="home-link" href="/" aria-current="page">홈</a>
         <div class="nav-group">
-          <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="games-panel">게임 <span aria-hidden="true">⌄</span></button>
+          <a class="nav-trigger" type="button" aria-expanded="false" aria-controls="games-panel" href="/game/">게임 <span aria-hidden="true">⌄</span></a>
           <div class="mega-panel" id="games-panel" hidden>
-            <div class="panel-heading"><div><p class="panel-label">PLAY</p><h2>직접 만든 미니게임</h2></div><a href="/game/">게임 전체 보기 ↗</a></div>
+            <div class="panel-heading"><div><p class="panel-label">PLAY</p><h2>직접 만든 미니게임</h2></div></div>
             <div class="menu-grid">
               <a class="menu-card" href="/game/01.html"><span class="menu-icon" aria-hidden="true">▤</span><strong>네온 벽돌깨기</strong><span>공을 튕겨 5개 레벨에 도전하세요.</span><small>CLASSIC ↗</small></a>
               <a class="menu-card" href="/game/03.html"><span class="menu-icon" aria-hidden="true">⌁</span><strong>네온 스네이크</strong><span>먹이를 먹고 최고 점수를 기록하세요.</span><small>ARCADE ↗</small></a>
@@ -271,15 +276,15 @@
           </div>
         </div>
         <div class="nav-group">
-          <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="songs-panel">노래 <span aria-hidden="true">⌄</span></button>
+          <a class="nav-trigger" type="button" aria-expanded="false" aria-controls="songs-panel" href="/music/">노래 <span aria-hidden="true">⌄</span></a>
           <div class="mega-panel" id="songs-panel" hidden>
-            <div class="panel-heading"><div><p class="panel-label">LISTEN</p><h2>순간마다 어울리는 세 곡</h2></div><a href="/music/">노래 전체 보기 ↗</a></div>
+            <div class="panel-heading"><div><p class="panel-label">LISTEN</p><h2>순간마다 어울리는 세 곡</h2></div></div>
             <div class="menu-grid">
               <a class="menu-card" href="https://suno.com/s/pOwj4379wHnR3TUI"><span class="menu-icon song-icon" aria-hidden="true">☾</span><strong>아직 너를 사는 중</strong><span>이별 뒤의 그리움을 담은 감성 R&amp;B.</span><small>R&amp;B · BALLAD ↗</small></a>
               <a class="menu-card" href="https://suno.com/s/PkLII0SGszGw3kkU"><span class="menu-icon song-icon" aria-hidden="true">≈</span><strong>어디든 좋아</strong><span>여행길에 어울리는 청량한 음악.</span><small>FESTIVAL EDM ↗</small></a>
               <a class="menu-card" href="https://suno.com/s/KcJ0pb2ixMshTpkl"><span class="menu-icon song-icon" aria-hidden="true">ϟ</span><strong>한계를 깨</strong><span>BREAK THE LIMIT · 에너지를 채우는 운동 음악.</span><small>HARDSTYLE · EDM ↗</small></a>
             </div>
-            <p class="panel-note">곡을 선택하면 Suno에서 열립니다. 홈페이지 안에서 들으려면 노래 전체 보기를 눌러주세요.</p>
+            <p class="panel-note">곡을 선택하면 Suno에서 열립니다. 홈페이지 안에서 들으려면 상단의 노래를 눌러주세요.</p>
           </div>
         </div>
         <a class="home-link" href="/voice-studio.html">보이스 스튜디오</a>
@@ -317,7 +322,7 @@
       <section aria-labelledby="featured-game">
         <div class="section-header"><h2 class="section-title" id="featured-game">대표 게임</h2><a class="github" href="/game/">게임 더보기 ↗</a></div>
         <article class="project">
-          <div class="art snake-photo"><img src="/neon-snake.png" width="371" height="237" alt="보라색 격자 배경의 민트색 네온 스네이크와 분홍색 먹이"></div>
+          <div class="art snake-vector"><svg viewBox="0 0 300 170" role="img" aria-label="초록 뱀과 빨간 먹이 그림"><g fill="#35d6ae"><rect x="40" y="115" width="30" height="30" rx="7"/><rect x="75" y="115" width="30" height="30" rx="7"/><rect x="110" y="115" width="30" height="30" rx="7"/><rect x="110" y="80" width="30" height="30" rx="7"/><rect x="110" y="45" width="30" height="30" rx="7"/><rect x="145" y="45" width="30" height="30" rx="7"/></g><rect x="180" y="45" width="30" height="30" rx="7" fill="#b5fff0"/><circle cx="201" cy="52" r="3" fill="#0c3133"/><circle cx="201" cy="66" r="3" fill="#0c3133"/><circle cx="252" cy="60" r="13" fill="#ff718f"/></svg></div>
           <div class="details">
             <p class="tag">ARCADE</p>
             <h3>네온 스네이크</h3>
@@ -351,13 +356,13 @@
     function setMenu(active) {
       groups.forEach(group => {
         const open = group === active;
-        group.querySelector('button').setAttribute('aria-expanded', String(open));
+        group.querySelector('.nav-trigger').setAttribute('aria-expanded', String(open));
         group.querySelector('.mega-panel').hidden = !open;
       });
     }
     groups.forEach(group => {
-      const button = group.querySelector('button');
-      button.addEventListener('click', () => setMenu(button.getAttribute('aria-expanded') === 'true' ? null : group));
+      const button = group.querySelector('.nav-trigger');
+
       group.addEventListener('pointerenter', event => {
         if (event.pointerType === 'mouse') setMenu(group);
       });
@@ -377,7 +382,7 @@
     });
     header.addEventListener('keydown', event => {
       if (event.key === 'Escape') {
-        const current = groups.find(group => group.querySelector('button').getAttribute('aria-expanded') === 'true');
+        const current = groups.find(group => group.querySelector('.nav-trigger').getAttribute('aria-expanded') === 'true');
         setMenu(null);
         if (current) current.querySelector('button').focus();
       }
