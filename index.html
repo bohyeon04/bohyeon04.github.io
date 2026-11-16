@@ -248,6 +248,9 @@
     .footer-inner strong {color:#d8d1f0;font-size:.9rem;}
     .footer-inner a {color:#c8bfe8;text-underline-offset:4px;}
     @media(max-width:48rem) {.hero {grid-template-columns:1fr;padding-block:3rem 2.5rem;gap:.5rem;} .hero-art {min-height:180px;max-width:320px;justify-self:center;} .hero-art svg {max-height:220px;} .collection-heading > span {display:none;} }
+  
+    .featured .snake-photo {min-height:0;background:#211f3e;display:block;}
+    .snake-photo img {display:block;width:100%;height:auto;}
   </style>
 </head>
 <body class="shell">
@@ -314,13 +317,7 @@
       <section aria-labelledby="featured-game">
         <div class="section-header"><h2 class="section-title" id="featured-game">대표 게임</h2><a class="github" href="/game/">게임 더보기 ↗</a></div>
         <article class="project">
-          <div class="art" aria-hidden="true">
-            <svg viewBox="0 0 192 120" fill="none">
-              <path d="M24 84h48V36h48v24h24" stroke="#36cea9" stroke-width="20"/>
-              <rect x="134" y="50" width="20" height="20" rx="2" fill="#a6ffea"/>
-              <circle cx="174" cy="60" r="7" fill="#ff7798"/>
-            </svg>
-          </div>
+          <div class="art snake-photo"><img src="/neon-snake.png" width="371" height="237" alt="보라색 격자 배경의 민트색 네온 스네이크와 분홍색 먹이"></div>
           <div class="details">
             <p class="tag">ARCADE</p>
             <h3>네온 스네이크</h3>
