@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="ElevenLabs로 만든 보현의 AI 목소리와 HeyGen으로 움직이는 사진을 결합한 AI 영상 제작 프로젝트입니다.">
+  <title>AI 영상 · BOHYEON LAB</title>
+  <style>
+    :root{color-scheme:dark;--text:#f5f3ff;--muted:#c3bddb;--line:#494164;--accent:#c5b8ff}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 95% 15%,#45418c66,transparent 45rem),#111126;color:var(--text);font:1rem/1.8 system-ui,"Malgun Gothic",sans-serif;word-break:keep-all}
+    a{color:inherit;text-underline-offset:4px}a:focus-visible{outline:2px solid var(--accent);outline-offset:5px}.shell{width:min(70rem,calc(100% - 2.5rem));margin:auto}
+    header{border-bottom:1px solid var(--line);background:#19182e}.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:76px}.brand{text-decoration:none;font-weight:850;letter-spacing:-.04em}.nav nav{display:flex;flex-wrap:wrap;gap:1.1rem;font-size:.9rem}.nav nav a{text-decoration:none;color:var(--muted)}.nav nav a[aria-current]{color:#fff}
+    .hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:3rem;align-items:center;padding:4rem 0}
+    .eyebrow{font:.75rem ui-monospace,monospace;letter-spacing:.2em;color:var(--accent)}h1{font-size:clamp(2.1rem,4.7vw,3.8rem);line-height:1.2;letter-spacing:-.05em;margin:1.2rem 0}h2{font-size:clamp(1.35rem,3vw,2rem);line-height:1.4;letter-spacing:-.03em}
+    p{color:var(--muted);margin:.6rem 0}.lead{font-size:1.05rem}.tags{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.4rem 0}.tags span{border:1px solid var(--line);border-radius:30px;padding:.2rem .8rem;font-size:.8rem;color:#dbd2f5}
+    .button{display:inline-flex;align-items:center;min-height:44px;margin-top:.8rem;padding:.6rem 1.1rem;border-radius:30px;background:var(--accent);color:#251d3c;text-decoration:none;font-weight:700}
+    figure{margin:0 auto;width:min(100%,360px);padding:12px;border:1px solid #625780;border-radius:26px;background:#25203e;box-shadow:0 20px 60px #07071366}
+    iframe{display:block;width:100%;aspect-ratio:9/16;border:0;border-radius:16px;background:#080811}
+    figcaption{text-align:center;color:var(--muted);font-size:.75rem;padding:.8rem .25rem .25rem}
+    section{padding:2rem 0;border-top:1px solid var(--line)}.steps{list-style:none;counter-reset:step;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+    .steps li{counter-increment:step;background:#211e39;border:1px solid var(--line);border-radius:16px;padding:1.5rem}.steps li:before{content:counter(step,decimal-leading-zero);color:var(--accent);font:700 1.2rem ui-monospace,monospace}.steps h3{font-size:1.1rem;margin:1rem 0 .5rem}.steps p{font-size:.95rem}
+    .note{padding:1rem 1.3rem;border-left:3px solid var(--accent);border-radius:0 12px 12px 0;background:#30284b;margin:1rem 0}
+    .links{display:flex;gap:1.3rem;flex-wrap:wrap;margin:1.5rem 0}.links a{color:#d3c5ff}footer{padding:2rem 0;color:var(--muted);font-size:.85rem}
+    @media(max-width:48rem){.hero{grid-template-columns:1fr;gap:2rem;padding:2.5rem 0}.steps{grid-template-columns:1fr}.nav{flex-direction:column;align-items:flex-start;padding:1rem 0;gap:.5rem}.nav nav{gap:.8rem}figure{max-width:340px}}
+  </style>
+</head>
+<body>
+  <header><div class="shell nav"><a class="brand" href="/">BOHYEON LAB.</a><nav aria-label="메인 메뉴"><a href="/">홈</a><a href="/game/">게임</a><a href="/music/">노래</a><a href="/voice-studio.html">보이스 스튜디오</a><a href="/ai-video.html" aria-current="page">AI 영상</a></nav></div></header>
+  <main class="shell">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">AI VIDEO / VOICE × PORTRAIT</p>
+        <h1>내 사진이<br>내 목소리로 말한다면.</h1>
+        <p class="lead">ElevenLabs로 만든 나의 AI 목소리에 HeyGen을 더했습니다. 내 사진에 목소리를 입혀 완성한 AI 영상 프로젝트입니다.</p>
+        <div class="tags"><span>ElevenLabs</span><span>HeyGen</span><span>AI 목소리</span><span>YouTube Shorts</span></div>
+        <p>이 영상 속 제가 진짜 사람으로 보이시나요</p>
+        <p>오른쪽 플레이어의 재생 버튼을 눌러 영상을 감상해 보세요.</p>
+        <a class="button" href="https://www.youtube.com/shorts/_L1fK-s0Pjk" target="_blank" rel="noopener noreferrer">YouTube에서 보기 ↗</a>
+      </div>
+      <figure>
+        <iframe title="보현의 AI 영상 · 이 영상 속 제가 진짜 사람으로 보이시나요"
+          src="https://www.youtube.com/embed/_L1fK-s0Pjk?playsinline=1"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <figcaption>ElevenLabs × HeyGen으로 만든 AI 영상</figcaption>
+      </figure>
+    </div>
+    <section aria-labelledby="process">
+      <p class="eyebrow">BEHIND THE VIDEO</p><h2 id="process">목소리와 사진이 영상이 되는 과정.</h2>
+      <ol class="steps">
+        <li><h3>나의 AI 목소리 만들기</h3><p>ElevenLabs에서 내 목소리를 바탕으로 AI 음성을 만들었습니다. 영상 속 말을 내 목소리로 표현하는 첫 단계입니다.</p></li>
+        <li><h3>사진에 목소리 입히기</h3><p>HeyGen에서 내 사진에 AI 목소리를 적용했습니다. 정지된 사진과 음성을 결합해 말하는 영상을 만들었습니다.</p></li>
+        <li><h3>영상으로 완성하기</h3><p>완성된 결과를 YouTube Shorts로 게시했습니다. 이 페이지에서 바로 감상하거나 YouTube에서 열어볼 수 있습니다.</p></li>
+      </ol>
+    </section>
+    <section aria-labelledby="about">
+      <p class="eyebrow">ABOUT THIS PROJECT</p><h2 id="about">나를 담은 AI 콘텐츠 실험.</h2>
+      <p>내 목소리와 내 사진을 재료로, AI 도구를 연결해 하나의 콘텐츠를 만들었습니다. 음성 합성과 영상 제작이 만나 어떤 결과를 만드는지 확인해 보세요.</p>
+      <p class="note">이 영상은 AI로 생성한 목소리와 사진 기반 영상으로 제작했습니다. 플레이어가 표시되지 않거나 재생이 제한되면 ‘YouTube에서 보기’로 감상할 수 있어요.</p>
+      <div class="links"><a href="/voice-studio.html">Python 보이스 스튜디오 알아보기 ↗</a><a href="https://www.youtube.com/shorts/_L1fK-s0Pjk" target="_blank" rel="noopener noreferrer">YouTube 영상 열기 ↗</a><a href="/">메인으로 돌아가기 ↗</a></div>
+    </section>
+  </main>
+  <footer class="shell">BOHYEON LAB. · AI 영상 프로젝트</footer>
+</body>
+</html>
